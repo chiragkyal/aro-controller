@@ -1,0 +1,31 @@
+# permissions for end users to edit aroclusters.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: arocluster-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: aro-controller
+    app.kubernetes.io/part-of: aro-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: arocluster-editor-role
+rules:
+- apiGroups:
+  - infrastructure.cluster.x-k8s.io
+  resources:
+  - aroclusters
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - infrastructure.cluster.x-k8s.io
+  resources:
+  - aroclusters/status
+  verbs:
+  - get

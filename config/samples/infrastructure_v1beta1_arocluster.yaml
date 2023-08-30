@@ -1,0 +1,12 @@
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+kind: AROCluster
+metadata:
+  labels:
+    app.kubernetes.io/name: arocluster
+    app.kubernetes.io/instance: arocluster-sample
+    app.kubernetes.io/part-of: aro-controller
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: aro-controller
+  name: arocluster-sample
+spec:
+  # TODO(user): Add fields here
