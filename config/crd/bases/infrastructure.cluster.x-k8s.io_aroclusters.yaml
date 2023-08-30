@@ -34,13 +34,17 @@ spec:
           spec:
             description: AROClusterSpec defines the desired state of AROCluster
             properties:
-              foo:
-                description: Foo is an example field of AROCluster. Edit arocluster_types.go
-                  to remove/update
+              controlPlaneEndpoint:
+                description: ControlPlaneEndpoint represents the endpoint used to
+                  communicate with the control plane.
                 type: string
             type: object
           status:
             description: AROClusterStatus defines the observed state of AROCluster
+            properties:
+              ready:
+                description: Ready is when the AROControlPlane has a API server URL.
+                type: boolean
             type: object
         type: object
     served: true

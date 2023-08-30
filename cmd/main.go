@@ -32,7 +32,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	infrastructurev1beta1 "github.com/chiragkyal/aro-controller/api/v1beta1"
-	"github.com/chiragkyal/aro-controller/internal/controller"
+	"github.com/chiragkyal/aro-controller/controllers"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -89,7 +89,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controller.AROClusterReconciler{
+	if err = (&controllers.AROClusterReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
